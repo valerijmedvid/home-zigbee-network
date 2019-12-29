@@ -1,0 +1,4 @@
+node-red
+zigbee2mqtt/log
+zigbee2mqtt/database.db
+zigbee2mqtt/state.json

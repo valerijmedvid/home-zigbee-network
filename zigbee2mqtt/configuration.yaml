@@ -1,0 +1,18 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+serial:
+  port: /dev/ttyACM0
+devices:
+  '0x00158d0002d7a2a8':
+    friendly_name: SenzorDveri1
+  '0x00158d0002f8f8a3':
+    friendly_name: Tlacitko1
+  '0x00158d0003144b76':
+    friendly_name: PohybovySenzor2
+  '0x00158d0002f8cf4f':
+    friendly_name: PohybovySenzor1
+  '0x00158d0002d7a301':
+    friendly_name: SenzorDveri2

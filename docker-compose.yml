@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    user: "1883:996"
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: always
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./zigbee2mqtt:/app/data
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    network_mode: host
+
+  node-red:
+    container_name: node-red
+    depends_on:
+      - mosquitto
+    image: nodered/node-red
+    environment:
+      - TZ=Europe/Prague
+    ports:
+      - "1880:1880"
+    network_mode: host
+    restart: always
+    
