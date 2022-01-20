@@ -2,21 +2,23 @@ version: "3.7"
 services:
   mosquitto:
     container_name: mosquitto
-    image: eclipse-mosquitto:1.6.14
+    # image: eclipse-mosquitto:1.6.14
+    image: eclipse-mosquitto:2.0.14
     user: "1883:996"
     ports:
       - 1883:1883
       - 9001:9001
     restart: always
     volumes:
-      - ./mqtt/config:/mosquitto/config:ro
+      - ./mqtt/config:/mosquitto/config
       - ./mqtt/data:/mosquitto/data
+      - ./mqtt/log:/mosquitto/log
     env_file:
       - .env
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.18.1
+    image: koenkk/zigbee2mqtt:1.22.2
     network_mode: host
     restart: always
     volumes:
@@ -26,7 +28,7 @@ services:
 
   node-red:
     container_name: node-red
-    image: nodered/node-red:1.2.9
+    image: nodered/node-red:2.1.6
     ports:
       - "1880:1880"
     network_mode: host
