@@ -1,3 +1,5 @@
+# !!! ARCHIVED !!! => Moved to [this repo](https://github.com/valerijmedvid/zigbee-stack)
+
 ## Zigbee docker stack
 
 Docker stack for homemade zigbee network.  
